@@ -1,1 +1,1 @@
-# Algorithms
+As Repository Name Suggests
