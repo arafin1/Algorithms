@@ -74,20 +74,84 @@ public:
     }
 };
 
+class BinarySearchTraversal{
+public:
+
+    //PreOrder:
+    //1. Visit the root
+    //2. Traverse the left subtree
+    //3. Traverse the right subtree
+
+    void preOrderTraversal(Node *root){
+        if(root == NULL){
+            return;
+        }
+        cout<<root->getData()<<" ";
+        preOrderTraversal(root->leftChild);
+        preOrderTraversal(root->rightChild);
+    }
+
+    //InOrder:
+    //1. Traverse the left subtree
+    //2. Visit the root
+    //3. Traverse the right subtree
+
+    void inOrderTraversal(Node *root){
+        if(root == NULL){
+            return;
+        }
+        inOrderTraversal(root->leftChild);
+        cout<<root->getData()<<" ";
+        inOrderTraversal(root->rightChild);
+    }
+
+    //PostOrder:
+    //1. Traverse the left subtree
+    //2. Traverse the right subtree
+    //3. Visit the root
+
+    void postOrderTraversal(Node *root){
+        if(root == NULL){
+            return;
+        }
+        postOrderTraversal(root->leftChild);
+        postOrderTraversal(root->rightChild);
+        cout<<root->getData()<<" ";
+
+    }
+
+};
 
 int main(){
 
 BST bst;
-bst.add(33);
+bst.add(7);
+bst.add(1);
+bst.add(0);
 bst.add(3);
-bst.add(93);
-bst.add(73);
-bst.add(30);
+bst.add(2);
+bst.add(5);
+bst.add(4);
+bst.add(6);
+bst.add(9);
+bst.add(8);
+bst.add(10);
 
-if(bst.search(300)){
-    cout<<"TRUE"<<endl;
-}else{
-    cout<<"False"<<endl;
-}
+BinarySearchTraversal preOrder;
+cout<<"Pre ORDER ->  ";
+preOrder.preOrderTraversal(bst.root);
+
+cout<<endl;
+cout<<endl;
+cout<<"In ORDER ->   ";
+preOrder.inOrderTraversal(bst.root);
+
+cout<<endl;
+cout<<endl;
+cout<<"POST ORDER -> ";
+preOrder.postOrderTraversal(bst.root);
+
+cout<<endl;
+cout<<endl;
 return 0;
 }
