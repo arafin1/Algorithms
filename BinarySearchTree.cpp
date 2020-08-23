@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 using namespace std;
 
 class Node{
@@ -120,6 +121,17 @@ public:
 
     }
 
+
+    int findHeight(Node* root){
+        // Base case:
+        if(root == NULL){
+            return 0;
+        }
+
+        return max(findHeight(root->leftChild),
+                   findHeight(root->rightChild)) + 1;
+    }
+
 };
 
 int main(){
@@ -153,5 +165,7 @@ preOrder.postOrderTraversal(bst.root);
 
 cout<<endl;
 cout<<endl;
+
+cout << "Height of tree: " << preOrder.findHeight(bst.root);
 return 0;
 }
